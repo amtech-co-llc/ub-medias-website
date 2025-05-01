@@ -1,6 +1,6 @@
 # UB MEDIAS NEWS WEBSITE
 
-This is a public repository showcasing the source code for the official website of [UB Medias].
+This is a public repository showcasing the source code for the official website of **UB Medias**.
 
 ## 🔒 License and Usage Terms
 
@@ -33,4 +33,4 @@ For any inquiries or if you need to use part of this work with permission, pleas
 
 ---
 
-© 2025 **Amtech technology (Amtech-co LLC)** – All rights reserved.
+© 2025 **Amtech technology (Amtech-co LLC | Software)** – All rights reserved.
