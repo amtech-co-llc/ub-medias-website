@@ -1,0 +1,22 @@
+#////////////////////////////////////////////////////////////////////////////////////////////////////
+
+RewriteEngine On
+
+# if I host my project online, I need to wirte:
+# RewriteBase /
+# because my project is into the domain folder, however, if it's into a subfolder then use /subfolder/
+
+RewriteBase /ub-medias/
+
+# Don't rewrite existing files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# 1. Remove .php extension from URL (e.g. /page becomes /page.php)
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# 2. Route slug-based URLs to voir-plus.php (SEO-friendly URLs)
+RewriteRule ^([a-zA-Z0-9\-]+)$ voir-plus.php?slug=$1 [L,QSA]
+
+#////////////////////////////////////////////////////////////////////////////////////////////////////

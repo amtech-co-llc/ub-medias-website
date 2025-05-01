@@ -1,0 +1,234 @@
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra small devices (phones, less than 576px) */
+@media (min-width: 300px) and (max-width: 575.98px) {
+
+    .text-pr.logo {
+        margin-top: 6px;
+        color: var(--primary);
+        font-size: 16px;
+    }
+
+    .button-2 {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 5px 10px;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: var(--cards);
+        color: var(--black);
+    }
+
+    /* Your styles for very small phones */
+    .container .headers-navigation {
+        display: none;
+    }
+
+    .body-contents {
+        margin-top: 1em;
+    }
+
+    .body-contents .contents-1 .top-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2em;
+        width: 90%;
+    }
+
+    .body-contents .contents-1 .top-card .image {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .body-contents .contents-1 .top-card .details {
+        width: 100%;
+    }
+
+    .other-cards .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1em;
+        width: 90%;
+    }
+
+    .other-cards .cards .card1 {
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+
+    .mobile-navigation {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.7em;
+        width: 100%;
+        box-shadow: 1px 1px 25px 1px rgba(85, 85, 85, 0.226);
+        background-color: var(--white);
+        padding: 1em 1em 1em 1em;
+    }
+
+    .footer .footer-contents {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 85%;
+        padding: 1em 0em 1em 0em;
+        border-bottom: 1px solid var(--white);
+    }
+
+    .contacts-card {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .newsletter-card {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 2em;
+    }
+
+    .comments {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1em;
+        gap: 3em;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Small devices (portrait phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Your styles for phones */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* Your styles for tablets */
+    .container .headers-navigation {
+        display: none;
+    }
+
+    .mobile-navigation {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.7em;
+        width: 100%;
+        box-shadow: 1px 1px 25px 1px rgba(85, 85, 85, 0.226);
+        background-color: var(--white);
+    }
+
+    .mobile-navigation {
+        padding: 0.7em 4em 0.7em 4em;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /* Your styles for small desktops/laptops */
+    .container .headers-navigation .navigation-contents {
+        padding: 1em 2em;
+        display: flex;
+        justify-content: space-between;
+        margin: 0em 2em 0em 2em;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    /* Your styles for larger desktops */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra-extra large devices (very large screens, 1400px and up) */
+@media (min-width: 1400px) {
+
+    /* Your styles for large monitors */
+    .container .headers-navigation .navigation-contents {
+        padding: 1em 2em;
+        display: flex;
+        justify-content: space-between;
+        margin: 0em 11em 0em 11em;
+    }
+
+    .body-contents .contents-1 .top-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2em;
+        width: 75%;
+    }
+
+    /* all body-cards */
+    .other-cards .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1em;
+        width: 75%;
+    }
+
+    .footer .footer-contents {
+        display: flex;
+        width: 75%;
+    }
+
+    .comments {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 75%;
+        padding: 2em 0em 2em 0em;
+        gap: 3em;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Portrait mode */
+@media (orientation: portrait) {
+    /* Styles for vertical view */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Landscape mode */
+@media (orientation: landscape) {
+    /* Styles for horizontal view */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */

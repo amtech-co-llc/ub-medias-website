@@ -1,0 +1,644 @@
+/* //////////////////////////////////////////////////////////////////////////////////// */
+/* this is the colors variables */
+:root {
+    --primary: #029bd8;
+    --black: #000;
+
+    --cards: #e4e7f7;
+    --footer: #f0f3f2;
+    --gray-footer: #6b6b6b;
+    --border: #dcdcdc;
+    --white: #fff;
+    --black: #000;
+    --red: #ffa4a4;
+}
+
+/* beginning of text selection */
+::selection {
+    background-color: #029bd8;
+    /* Background color of selected text */
+    color: white;
+    /* Text color */
+}
+
+/* For Firefox */
+::-moz-selection {
+    background-color: #029bd8;
+    color: white;
+}
+
+/* end of text selection */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+body.noscroll {
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+/* buttons style */
+.button-1 {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 20px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.button-2 {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 20px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--cards);
+    color: var(--black);
+}
+
+.button-3 {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 8px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 17px;
+}
+
+.text-pr {
+    color: var(--primary);
+}
+
+.text-pr.logo {
+    margin-top: 6px;
+    color: var(--primary);
+}
+
+#redir {
+    text-decoration: none;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+/* navigation bar */
+.container .headers-navigation {
+    width: 100%;
+    box-shadow: 1px 1px 25px 1px rgba(85, 85, 85, 0.226);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+}
+
+.container .headers-navigation .navigation-contents {
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    margin: 0em 4em 0em 4em;
+}
+
+.container .headers-navigation .navigation-contents a {
+    text-decoration: none;
+}
+
+.container .headers-navigation .navigation-contents a h3 {
+    color: var(--primary);
+}
+
+.container .headers-navigation .navigation-contents ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin-top: 3px;
+}
+
+.container .headers-navigation .navigation-contents ul li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.container .headers-navigation .navigation-contents ul li a:hover {
+    color: var(--primary);
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.body-contents {
+    margin-top: 2em;
+}
+
+.body-contents .contents-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-contents .contents-1 .top-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    width: 85%;
+}
+
+.body-contents .contents-1 .top-card .details {
+    width: 80em;
+}
+
+.body-contents .contents-1 .top-card .details h3 {
+    margin-bottom: 15px;
+}
+
+.body-contents .contents-1 .top-card .details p {
+    color: var(--gray-footer);
+}
+
+.body-contents .contents-1 .top-card .image {
+    width: 100em;
+    height: 23.5em;
+    overflow: hidden;
+}
+
+.body-contents .contents-1 .top-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.other-details {
+    margin-top: 1em;
+}
+
+.other-details .icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.other-details .icons .act {
+    color: var(--gray-footer);
+    font-size: 17px;
+    font-size: 15px;
+}
+
+#categorie {
+    margin-top: 0.8em;
+    color: var(--white);
+    /* background-color: #bd3232; */
+    background-color: var(--primary);
+    padding: 0.2em;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+.other-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.other-cards .cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+    width: 85%;
+}
+
+.other-cards .cards .card1 {
+    width: 32%;
+    margin-bottom: 1.5em;
+}
+
+.other-cards .cards .card1 .image {
+    width: 100%;
+    height: 16em;
+    overflow: hidden;
+}
+
+.other-cards .cards .card1 .details a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.other-cards .cards .card1 .details a:hover {
+    text-decoration: underline;
+}
+
+.other-cards .cards .card1 .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icons-activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.icons-activity .act {
+    color: var(--gray-footer);
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+/* beginning of pagination style */
+
+.page-btn,
+.nav-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    margin: 0.2em;
+}
+
+.page-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.page-btn:hover,
+.nav-btn:hover {
+    background-color: #eee;
+    color: var(--black);
+}
+
+.nav-btn:disabled {
+    background-color: #f9f9f9;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+#pagination-container {
+    margin-bottom: 1em;
+}
+
+/* end of pagination style */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* beginning of mobile navagation */
+
+.mobile-navigation {
+    display: none;
+}
+
+#nav-btn {
+    outline: none;
+    border: none;
+    background-color: var(--white);
+    color: var(--primary);
+    font-size: 20px;
+}
+
+#items-container-title {
+    padding: 1em;
+}
+
+#items-container-title-2 {
+    padding: 0em;
+}
+
+.mobile-navigation-list .lists-nav {
+    position: absolute;
+    top: 0;
+    background-color: var(--white);
+    width: 80%;
+    height: 100vh;
+    transform: translate(-5000px);
+    transition: .5s all ease-in-out;
+}
+
+.mobile-navigation-list.show {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.507);
+    transition: .4s all ease-in-out;
+}
+
+.mobile-navigation-list.show .lists-nav {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    height: 100vh;
+    transform: translate(0);
+    transition: .5s all ease-in-out;
+    background-color: var(--white);
+}
+
+.mobile-navigation-list .lists-nav .tops-sl {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-navigation-list .lists-nav .tops-sl button {
+    background-color: var(--white);
+    outline: none;
+    border: none;
+}
+
+.mobile-navigation-list .lists-nav .tops-sl h3 {
+    color: var(--primary);
+}
+
+.mobile-navigation-list .lists-nav ul {
+    padding: 3em;
+    list-style: none;
+}
+
+.mobile-navigation-list .lists-nav ul li {
+    margin-bottom: 1em;
+}
+
+.mobile-navigation-list .lists-nav ul li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.mobile-navigation-list .lists-nav .bottom-mobnav {
+    padding: 1em;
+    text-align: center;
+}
+
+.mobile-navigation-list .lists-nav .bottom-mobnav p {
+    font-size: 12px;
+}
+
+/* end of mobile navagation */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* beginning of footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 1em;
+    width: 100%;
+    color: var(--white);
+}
+
+.footer .footer-contents {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    width: 85%;
+    padding: 1em 0em 1em 0em;
+    border-bottom: 1px solid var(--white);
+}
+
+.footer .footer-contents .card1-f {
+    padding-bottom: 1em;
+}
+
+.footer .footer-contents .card1-f .footer-details {
+    padding-top: 1em;
+}
+
+.footer .footer-contents .card1-f .footer-details ul {
+    list-style: none;
+}
+
+.footer .footer-contents .card1-f .footer-details ul li {
+    margin-top: 0.4em;
+}
+
+.footer .footer-contents .card1-f .footer-details ul li a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.copy-right-text {
+    padding: 1em;
+    text-align: center;
+}
+
+.copy-right-text .texts p a,
+.name {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.copy-right-text .socials-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+    gap: 1em;
+}
+
+.copy-right-text .socials-icons a {
+    text-decoration: none;
+}
+
+.copy-right-text .socials-icons a button {
+    border: none;
+    outline: none;
+    padding: 0.2em;
+    font-size: 21px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.copy-right-text .socials-icons a button:hover {
+    color: var(--primary);
+}
+
+/* end of footer */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* beginning of share contents */
+
+.share-card {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.share-card h2 {
+    margin-bottom: 0.3em;
+}
+
+.share-card .socials-icons-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.share-card .socials-icons-share a button {
+    padding: 0.2em;
+    font-size: 25px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.share-card .socials-icons-share a button:hover {
+    color: var(--primary);
+}
+
+.contacts-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+.newsletter-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    padding: 2em;
+}
+
+.contacts-card ul {
+    list-style: none;
+}
+
+.input-mail form {
+    display: flex;
+}
+
+.input-mail form input {
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 8px 0px 0px 8px;
+}
+
+.input-mail form button {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+
+/* end of share content */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* beginning of comment */
+
+.comments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    padding: 2em 0em 2em 0em;
+    gap: 3em;
+}
+
+.comments .comments-contents .comments-cards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.comments .comments-contents .comments-cards .comment-1 {
+    padding: 0.3em;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+}
+
+.comments .comments-contents .comments-cards .comment-1 p {
+    color: var(--gray-footer);
+}
+
+.comment-place {
+    width: 100%;
+}
+
+.comment-place form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-place form input {
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.comment-place form textarea {
+    padding: 0.8em;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 4px;
+    height: 6em;
+
+}
+
+.comment-place form button {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+/* end of comment */
+.act {
+    cursor: pointer;
+}
+
+.act .like-btn.liked {
+    color: var(--primary);
+}

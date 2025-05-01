@@ -1,0 +1,120 @@
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra small devices (phones, less than 576px) */
+@media (min-width: 300px) and (max-width: 575.98px) {
+
+    /* small phones */
+    .containers .b4-navigation .navigation h2 {
+        font-size: 16px;
+    }
+
+    .containers .b4-navigation .navigation .others-plus-profile .profile h4 {
+        font-size: 12px;
+        margin-top: 0px;
+    }
+
+    .containers .b4-navigation .navigation .others-plus-profile .profile .image {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .containers .b4-navigation .navigation .others-plus-profile .profile {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containers .b4-navigation .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8em;
+        width: 100%;
+    }
+
+    .containers .b4-navigation .navigation .others-plus-profile .notifications .pop-up-notif.show {
+        display: block;
+        position: absolute;
+        background: var(--white);
+        box-shadow: 1px 1px 25px 1px rgba(85, 85, 85, 0.226);
+        border-radius: 8px;
+        width: 50%;
+        height: 15em;
+        overflow-y: scroll;
+    }
+
+    .body-contents .right-contents .first-cards .card1 {
+        background: var(--cards);
+        padding: 1em;
+        width: 100%;
+        border-radius: 8px;
+    }
+
+   /*  .left-contents {
+        display: none;
+    } */
+
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Small devices (portrait phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Your styles for phones */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Your styles for tablets */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Your styles for small desktops/laptops */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    /* Your styles for larger desktops */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Extra-extra large devices (very large screens, 1400px and up) */
+@media (min-width: 1400px) {
+
+    /* Your styles for large monitors */
+    .containers .b4-navigation .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em;
+        width: 75%;
+    }
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Portrait mode */
+@media (orientation: portrait) {
+    /* Styles for vertical view */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Landscape mode */
+@media (orientation: landscape) {
+    /* Styles for horizontal view */
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////// */
