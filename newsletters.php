@@ -147,16 +147,15 @@
                         Ne manquez plus aucune de nos publications ! En vous abonnant à la newsletter de
                         <span class="text-pr">UB Médias</span>,
                         vous recevrez régulièrement dans votre boîte mail les derniers articles, analyses, interviews,
-                        vidéos, et actualités sélectionnées par notre rédaction. Que vous soyez passionné d'information,
-                        curieux du monde qui vous entoure, ou tout simplement à la recherche de contenus fiables et
+                        vidéos, et actualités sélectionnés par notre rédaction. Que vous soyez passionné d'information,
+                        curieux du monde qui vous entoure ou tout simplement à la recherche de contenus fiables et
                         enrichissants, notre newsletter est faite pour vous.
                         <br><br>
-                        Rejoignez notre communauté d’abonnés et restez connecté à l’essentiel de l’actualité.
+                        Rejoignez notre communauté d’abonnés et restez connectés à l’essentiel de l’actualité.
                         L’inscription est rapide, gratuite, et vous pouvez vous désabonner à tout moment. <br>
 
                         👉 Inscrivez-vous dès maintenant et découvrez une nouvelle façon de rester informé avec <span
-                            class="text-pr">UB Médias</span> .
-                        Tu veux aussi que je t’écrive les textes pour les boutons ou les messages de confirmation ?
+                            class="text-pr">UB Médias</span>.
                     </p><br>
                     <p id="visualizer" style="margin-bottom: 15px;"></p>
                     <div class="input-mail">

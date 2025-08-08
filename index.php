@@ -353,9 +353,24 @@ include('./php/connection.php');
                             <a href="https://www.t.me/ubmedias" target="_blank"><button><i class="ri-telegram-fill"></i></button></a>
                         </div>
                         <div class="texts">
-                            <p>&copy;2025 <span class="name">UB Medias</span> tout droits réservé. <br> Propulsé par <a
-                                    href="https://www.amtech-co.com" target="_blank">Amtech technology
-                                    (Amtech-co LLC | Software)</a></p>
+                            <p>
+                                &copy;2025 <span class="name">UB Médias</span> — Tous droits réservés.
+                                <br> Propulsé par
+                                <span itemscope itemtype="https://schema.org/Organization" itemprop="creator">
+                                    <a href="https://www.amtech-co.com" itemprop="url" rel="sponsored" target="_blank">
+                                        <span itemprop="name">Amtech Technology (Amtech-co LLC | Software)</span>
+                                    </a>
+                                    <meta itemprop="foundingDate" content="2021" />
+                                    <meta itemprop="address" content="Goma, Democratic Republic of the Congo" />
+                                    <meta itemprop="email" content="contact@amtech-co.com" />
+                                    <meta itemprop="logo" content="https://www.amtech-co.com/profile/amtech-technology-logo.png" />
+                                    <meta itemprop="sameAs" content="https://www.linkedin.com/company/amtechtechnology/" />
+                                    <meta itemprop="sameAs" content="https://github.com/amtech-technology" />
+                                    <span itemprop="founder" itemscope itemtype="https://schema.org/Person">
+                                        <meta itemprop="name" content="Audrey Mirindi" />
+                                    </span>
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>

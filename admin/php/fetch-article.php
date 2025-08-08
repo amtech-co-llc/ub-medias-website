@@ -32,7 +32,7 @@ if (count($result) > 0) {
                                         ' . $desc . '
                                     </p>
                                     <p>Heure de publication: <span style="color:green;">' . timeAgo($publication_time) . '</span></p>
-                                    <p style="color:#029bd8;">' . formatViews($row['post_views']) . ' views <i class="ri-circle-fill" style="font-size:8px;"></i> ' . formatViews($row['post_likes']) . ' Likes <i class="ri-circle-fill" style="font-size:8px;"></i> ' . formatViews($row['post_dislikes']) . ' dislikes <i class="ri-circle-fill" style="font-size:8px;"></i> ' . formatViews($row['post_comment']) . ' comments</p>
+                                    <p style="color:#029bd8;">' . formatViews($row['post_views']) . ' views  ' . formatViews($row['post_likes']) . ' Likes <i class="ri-circle-fill" style="font-size:8px;"></i> ' . formatViews($row['post_dislikes']) . ' dislikes <i class="ri-circle-fill" style="font-size:8px;"></i> ' . formatViews($row['post_comment']) . ' comments</p>
                                 </div>
                             </div>
                             <div class="actions-card">
