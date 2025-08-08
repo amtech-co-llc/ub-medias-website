@@ -166,9 +166,9 @@ $query->execute([$share_num, $id]);
                         Ensemble, faisons circuler l’information !</p><br>
                     <h2>Partager sur</h2>
                     <div class="socials-icons-share">
-                        <a href="https://wa.me/?text=<?php echo $desc . ' Lisez plus en clickant sur ce lien:' . "%0A%0Ahttps://ub-meidas.com/" . $result['seo_url'] ?>"><button><i class="ri-whatsapp-line"></i></button></a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo "https://ub-meidas.com/" . $result['seo_url'] ?>"><button><i class="ri-facebook-fill"></i></button></a>
-                        <a href="https://twitter.com/intent/tweet?text=<?php echo $desc . ' Lisez plus en clickant sur ce lien:' . '%0A' . 'https://ub-meidas.com/' . $result['seo_url'] ?>"><button><i class="ri-twitter-x-line"></i></button></a>
+                        <a href="https://wa.me/?text=<?php echo $desc . ' Lisez plus en clickant sur ce lien:' . "%0A%0Ahttps://ub-medias.com/" . $result['seo_url'] ?>"><button><i class="ri-whatsapp-line"></i></button></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo "https://ub-medias.com/" . $result['seo_url'] ?>"><button><i class="ri-facebook-fill"></i></button></a>
+                        <a href="https://twitter.com/intent/tweet?text=<?php echo $desc . ' Lisez plus en clickant sur ce lien:' . '%0A' . 'https://ub-medias.com/' . $result['seo_url'] ?>"><button><i class="ri-twitter-x-line"></i></button></a>
                     </div>
                 </div>
 
