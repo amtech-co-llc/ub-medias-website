@@ -189,29 +189,29 @@ $results = $query->fetch();
                     <!-- beginning of card1 -->
                     <div class="card1">
                         <h5>Nombre total de vues</h5>
-                        <h1><?php echo formatViews($results['total_views']); ?></h1>
-                        <p>Nombre réel: <?php echo $results['total_views']; ?></p>
+                        <h1><?php echo formatViews($results['total_views'] ?? '0'); ?></h1>
+                        <p>Nombre réel: <?php echo $results['total_views'] ?? '0'; ?></p>
                     </div>
                     <!-- end of card1 -->
                     <!-- beginning of card1 -->
                     <div class="card1">
                         <h5>Nombre total de Likes</h5>
-                        <h1><?php echo formatViews($results['total_likes']); ?></h1>
-                        <p>Nombre réel: <?php echo $results['total_likes']; ?></p>
+                        <h1><?php echo formatViews($results['total_likes'] ?? '0'); ?></h1>
+                        <p>Nombre réel: <?php echo $results['total_likes'] ?? '0'; ?></p>
                     </div>
                     <!-- end of card1 -->
                     <!-- beginning of card1 -->
                     <div class="card1">
-                        <h5>Nombre total de Comments</h5>
-                        <h1><?php echo formatViews($results['total_comments']); ?></h1>
-                        <p>Nombre réel: <?php echo $results['total_comments']; ?></p>
+                        <h5>Nombre de Comments</h5>
+                        <h1><?php echo formatViews($results['total_comments'] ?? '0'); ?></h1>
+                        <p>Nombre réel: <?php echo $results['total_comments'] ?? '0'; ?></p>
                     </div>
                     <!-- end of card1 -->
                     <!-- beginning of card1 -->
                     <div class="card1">
                         <h5>Nombre total de Partages</h5>
-                        <h1><?php echo formatViews($results['total_shares']); ?></h1>
-                        <p>Nombre réel: <?php echo $results['total_shares']; ?></p>
+                        <h1><?php echo formatViews($results['total_shares'] ?? '0'); ?></h1>
+                        <p>Nombre réel: <?php echo $results['total_shares'] ?? '0'; ?></p>
                     </div>
                     <!-- end of card1 -->
                 </div>
