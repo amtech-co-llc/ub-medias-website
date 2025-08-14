@@ -90,11 +90,11 @@ $query->execute([$share_num, $id]);
         <!-- navigation bar -->
         <div class="headers-navigation">
             <div class="navigation-contents">
-                <a href="./index">
+                <a href="./">
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -118,7 +118,7 @@ $query->execute([$share_num, $id]);
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -129,13 +129,13 @@ $query->execute([$share_num, $id]);
         <div class="mobile-navigation-list" id="mobile-manu-slider">
             <div class="lists-nav">
                 <div class="tops-sl">
-                    <a href="./index">
+                    <a href="./">
                         <h3>UB Medias</h3>
                     </a>
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -170,6 +170,39 @@ $query->execute([$share_num, $id]);
                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo "https://ub-medias.com/" . $result['seo_url'] ?>"><button><i class="ri-facebook-fill"></i></button></a>
                         <a href="https://twitter.com/intent/tweet?text=<?php echo $desc . ' Lisez plus en clickant sur ce lien:' . '%0A' . 'https://ub-medias.com/' . $result['seo_url'] ?>"><button><i class="ri-twitter-x-line"></i></button></a>
                     </div>
+                    <!-- HTML -->
+                    <br>
+                    <button id="copyLinkBtn">Copier le lien <i class="ri-link-m"></i></button>
+                    <span id="copyMessage" style="margin-left:10px;margin-top:5px;color:#029bd8;"></span>
+
+                    <script>
+                        document.getElementById("copyLinkBtn").addEventListener("click", function() {
+                            const textToCopy = `https://ub-medias.com/<?php echo $result['seo_url']; ?>` // <-- place your text here
+                            navigator.clipboard.writeText(textToCopy).then(() => {
+                                const msg = document.getElementById("copyMessage");
+                                msg.textContent = "Copié";
+                                setTimeout(() => msg.textContent = "", 2000); // remove message after 2s
+                            }).catch(err => {
+                                alert("Failed to copy text: " + err);
+                            });
+                        });
+                    </script>
+
+                    <style>
+                        #copyLinkBtn {
+                            padding: 8px 16px;
+                            background-color: #029bd8;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                        }
+
+                        #copyLinkBtn:hover {
+                            background-color: #029bd8;
+                        }
+                    </style>
+
                 </div>
 
                 <!-- footer -->

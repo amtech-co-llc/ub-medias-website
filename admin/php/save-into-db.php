@@ -68,7 +68,7 @@ if (!empty($titre) && !empty($categorie) && !empty($nom_du_redacteur) && !empty(
 
         // Call the function to convert the uploaded image to WebP before saving it
         /* $newFileName = uniqid() . '.webp'; // Unique name for the WebP image */
-        $newFileName = $seo_url . '_' . $unique_id . '.webp';
+        $newFileName = $seo_url . '_' . $unique_id . '.jpeg';
         $save_seo_url = $seo_url . '-' . $unique_id;
 
         $outputFilePath = $uploadDir . $newFileName;

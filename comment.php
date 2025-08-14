@@ -90,11 +90,11 @@ $query_for_comment->execute([$post_views + 1, $id]);
         <!-- navigation bar -->
         <div class="headers-navigation">
             <div class="navigation-contents">
-                <a href="./index">
+                <a href="./">
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -119,7 +119,7 @@ $query_for_comment->execute([$post_views + 1, $id]);
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -130,13 +130,13 @@ $query_for_comment->execute([$post_views + 1, $id]);
         <div class="mobile-navigation-list" id="mobile-manu-slider">
             <div class="lists-nav">
                 <div class="tops-sl">
-                    <a href="./index">
+                    <a href="./">
                         <h3>UB Medias</h3>
                     </a>
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -184,7 +184,6 @@ $query_for_comment->execute([$post_views + 1, $id]);
                                 <div class="other-details">
                                     <div class="icons">
                                         <div class="act"><i class="ri-edit-line"></i> <?php echo $row['nom_du_redacteur'] ?></div>
-                                        <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                         <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
                                         <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                         <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">

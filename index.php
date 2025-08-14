@@ -72,11 +72,11 @@ include('./php/connection.php');
         <!-- navigation bar -->
         <div class="headers-navigation">
             <div class="navigation-contents">
-                <a href="./index">
+                <a href="./">
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -98,11 +98,11 @@ include('./php/connection.php');
         <!-- beginning of mobile navigation -->
         <div class="mobile-navigation">
             <button id="nav-btn"><i class="ri-bar-chart-horizontal-line"></i></button>
-            <a href="./index">
+            <a href="./">
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -119,7 +119,7 @@ include('./php/connection.php');
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -145,32 +145,29 @@ include('./php/connection.php');
             <div class="contents-1">
                 <!-- big-first-card -->
                 <?php
-
-                $sql = "SELECT * FROM publication ORDER BY id DESC LIMIT 1";
+                $sql = "SELECT * FROM publication ORDER BY RAND() DESC";
                 $query = $pdo->prepare($sql);
                 $query->execute();
 
                 $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 if (count($results) > 0) {
-                    foreach ($results as $row) {
-
-                        (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
-
+                    foreach ($results as $index => $row) {
+                        $desc = $row['description'];
+                        $style = $index === 0 ? '' : 'style="display:none;"'; // show first, hide the rest
                 ?>
-                        <div class="top-card">
+                        <div class="top-card rotate-post" <?php echo $style; ?>>
                             <div class="image">
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
                                 <h3><?php echo $row['titre'] ?></h3>
-                                <p class="article-content"><?php echo $row['description'] ?></p>
+                                <p class="article-content"><?php echo $desc ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
                                     <div class="icons">
                                         <div class="act"><i class="ri-edit-line"></i> <?php echo $row['nom_du_redacteur'] ?></div>
-                                        <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                         <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
-                                        <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
+                                        <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                         <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">
                                             <div class="act"><i class="ri-chat-3-line"></i> <?php echo formatViews($row['post_comment']); ?></div>
                                         </a>
@@ -185,22 +182,75 @@ include('./php/connection.php');
                     }
                 }
                 ?>
+
                 <!-- other cards beginning -->
                 <div class="other-cards">
                     <h1>Actualités à la une</h1>
                     <div class="cards">
                         <!-- beginning of card1 -->
                         <?php
+                        $today = date('Y-m-d');
+                        $yesterday = date('Y-m-d', strtotime('-1 day'));
 
-                        $sql = "SELECT * FROM publication ORDER BY id DESC LIMIT 3";
-                        $query = $pdo->prepare($sql);
-                        $query->execute();
+                        // 1. Posts from today
+                        $sqlToday = "SELECT * FROM publication 
+             WHERE DATE(temps_de_publication) = :today 
+             ORDER BY temps_de_publication DESC 
+             LIMIT 3";
+                        $queryToday = $pdo->prepare($sqlToday);
+                        $queryToday->execute([':today' => $today]);
+                        $posts = $queryToday->fetchAll(PDO::FETCH_ASSOC);
 
-                        $results = $query->fetchAll(PDO::FETCH_ASSOC);
-                        if (count($results) > 0) {
-                            foreach ($results as $row) {
+                        $remaining = 3 - count($posts);
 
-                                (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                        if ($remaining > 0) {
+                            // 2. Posts from yesterday
+                            $sqlYesterday = "SELECT * FROM publication 
+                     WHERE DATE(temps_de_publication) = :yesterday 
+                     ORDER BY temps_de_publication DESC 
+                     LIMIT :remaining";
+                            $queryYesterday = $pdo->prepare($sqlYesterday);
+                            $queryYesterday->bindValue(':yesterday', $yesterday);
+                            $queryYesterday->bindValue(':remaining', $remaining, PDO::PARAM_INT);
+                            $queryYesterday->execute();
+                            $yesterdayPosts = $queryYesterday->fetchAll(PDO::FETCH_ASSOC);
+
+                            $posts = array_merge($posts, $yesterdayPosts);
+                            $remaining = 3 - count($posts);
+                        }
+
+                        if ($remaining > 0) {
+                            // 3. Most recent older posts
+                            $excludedIds = array_column($posts, 'id');
+                            $sqlRecent = "SELECT * FROM publication ";
+                            if (!empty($excludedIds)) {
+                                $placeholders = [];
+                                foreach ($excludedIds as $index => $id) {
+                                    $placeholders[] = ":id$index";
+                                }
+                                $sqlRecent .= "WHERE id NOT IN (" . implode(',', $placeholders) . ") ";
+                            }
+                            $sqlRecent .= "ORDER BY temps_de_publication DESC 
+                   LIMIT :remaining";
+
+                            $queryRecent = $pdo->prepare($sqlRecent);
+
+                            if (!empty($excludedIds)) {
+                                foreach ($excludedIds as $index => $id) {
+                                    $queryRecent->bindValue(":id$index", $id, PDO::PARAM_INT);
+                                }
+                            }
+                            $queryRecent->bindValue(':remaining', $remaining, PDO::PARAM_INT);
+                            $queryRecent->execute();
+                            $recentPosts = $queryRecent->fetchAll(PDO::FETCH_ASSOC);
+
+                            $posts = array_merge($posts, $recentPosts);
+                        }
+
+                        // Display posts
+                        if (count($posts) > 0) {
+                            foreach ($posts as $row) {
+                                $desc = (strlen($row['description']) > 110) ? substr($row['description'], 0, 110) . '...' : $row['description'];
                         ?>
                                 <div class="card1">
                                     <div class="image">
@@ -209,10 +259,9 @@ include('./php/connection.php');
                                     <div class="details">
                                         <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                         <a href="./<?php echo $row['seo_url'] ?>">
-                                            <p class="article-content"><?php echo $desc ?></p>
+                                            <p class="article-content"><?php echo $row['titre'] ?></p>
                                         </a>
                                         <div class="icons-activity">
-                                            <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
                                             <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                             <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">
@@ -224,11 +273,11 @@ include('./php/connection.php');
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end of card1 -->
                         <?php
                             }
                         }
                         ?>
+
                     </div>
 
                     <!-- beginning of all news -->
@@ -239,7 +288,7 @@ include('./php/connection.php');
                         <!-- beginning of card1 -->
                         <?php
 
-                        $sql = "SELECT * FROM publication WHERE id != (SELECT MAX(id) FROM publication) ORDER BY RAND()";
+                        $sql = "SELECT * FROM publication ORDER BY RAND()";
                         $query = $pdo->prepare($sql);
                         $query->execute();
 
@@ -256,10 +305,9 @@ include('./php/connection.php');
                                     <div class="details">
                                         <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                         <a href="./<?php echo $row['seo_url'] ?>">
-                                            <p class="article-content"><?php echo $desc ?></p>
+                                            <p class="article-content"><?php echo $row['titre'] ?></p>
                                         </a>
                                         <div class="icons-activity">
-                                            <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
                                             <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                             <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">
@@ -322,7 +370,7 @@ include('./php/connection.php');
                                     <li><a href="#">Vente de contenus</a></li>
                                     <li><a href="#">Nous rejoindre</a></li>
                                     <li><a href="#">Publicité</a></li>
-                                    <li><a href="#">Contacter UB Medias</a></li>
+                                    <li><a href="./contacts.php">Contacter UB Medias</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -332,7 +380,7 @@ include('./php/connection.php');
                             <h4 class="text-to-uppercase">Nos services</h4>
                             <div class="footer-details">
                                 <ul>
-                                    <li><a href="#">S'abonner aux newsletters</a></li>
+                                    <li><a href="./newsletters.php">S'abonner aux newsletters</a></li>
                                     <li><a href="#">Proposer une Publicité</a></li>
                                     <li><a href="#">Monaitisation de vos réseaux-sociaux</a></li>
                                     <li><a href="#">Optimisation de vos réseaux-sociaux</a></li>
@@ -344,13 +392,13 @@ include('./php/connection.php');
                     </div>
                     <div class="copy-right-text">
                         <div class="socials-icons">
-                            <a href="https://www.facebook.com/ubmediascongo" target="_blank"><button><i class="ri-facebook-fill"></i></button></a>
-                            <a href="https://www.instagram.com/ubmediasrdc" target="_blank"><button><i class="ri-instagram-line"></i></button></a>
-                            <a href="https://www.x.com/UB_Medias" target="_blank"><button><i class="ri-twitter-x-line"></i></button></a>
-                            <a href="https://www.youtube.com/@ubfrançais" target="_blank"><button><i class="ri-youtube-fill"></i></button></a>
-                            <a href="https://www.tiktok.com/@ubmedias" target="_blank"><button><i class="ri-tiktok-fill"></i></button></a>
-                            <a href="https://www.whatsapp.com/channel/0029VanftUDG3R3oxVjcPS2k" target="_blank"><button><i class="ri-whatsapp-line"></i></button></a>
-                            <a href="https://www.t.me/ubmedias" target="_blank"><button><i class="ri-telegram-fill"></i></button></a>
+                            <a href="https://www.facebook.com/ubmediasofficiel/" target="_blank"><button><i class="ri-facebook-fill"></i></button></a>
+                            <a href="https://www.instagram.com/ubmediasrdc/" target="_blank"><button><i class="ri-instagram-line"></i></button></a>
+                            <a href="https://www.x.com/UB_Medias/" target="_blank"><button><i class="ri-twitter-x-line"></i></button></a>
+                            <a href="https://www.youtube.com/@ubmediasofficiel/" target="_blank"><button><i class="ri-youtube-fill"></i></button></a>
+                            <a href="https://www.tiktok.com/@ubmediasofficiel/" target="_blank"><button><i class="ri-tiktok-fill"></i></button></a>
+                            <a href="https://www.whatsapp.com/channel/0029VanftUDG3R3oxVjcPS2k/" target="_blank"><button><i class="ri-whatsapp-line"></i></button></a>
+                            <a href="https://www.t.me/ubmedias/" target="_blank"><button><i class="ri-telegram-fill"></i></button></a>
                         </div>
                         <div class="texts">
                             <p>
@@ -379,20 +427,16 @@ include('./php/connection.php');
         <!-- end of body-contents -->
     </div>
 
-
-
-
-
-
     <!-- MANAGE HASH TAGS AND URLS -->
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+    <script src="./assets/js/post-rotation.js"></script>
     <!-- use this code to make urls clickable automatically and hashtags -->
     <script src="./assets/js/urls-and-hashtags.js"></script>
     <!-- include the pagination codes -->
     <script src="./assets/js/pagination.js"></script>
     <!-- uppercase texts -->
     <script src="./assets/js/like_system.js"></script>
-    <script src="./assets/js/dislike_system.js"></script>
+    <!--    <script src="./assets/js/dislike_system.js"></script> -->
 
     <!-- fetch article from database -->
     <!--     <script src="./ajax/fetch-article.js"></script> -->
@@ -427,5 +471,7 @@ function formatViews($number)
         return round($number / 1000000000000, 1) . 'T';
     }
 }
+
+// I WILL SET THE ACCOUNT SYSTEM TO HANDLE PROPERLY THE LIKES AND DISLIKES SYSTEMS USING UNIQUE ID
 
 ?>

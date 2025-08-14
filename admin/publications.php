@@ -325,10 +325,11 @@
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0);
 
-                        canvas.toBlob(function(blob) {
+                        // Convert directly to JPEG with 80% quality
+                        canvas.toBlob(function(jpegBlob) {
                             const formData = new FormData(form);
                             formData.delete(fileInput.name); // Remove original image
-                            formData.append(fileInput.name, blob, 'image.webp'); // Add WebP blob
+                            formData.append(fileInput.name, jpegBlob, 'image.jpg');
 
                             const xhr = new XMLHttpRequest();
                             xhr.open("POST", "./php/save-into-db.php", true);
@@ -344,7 +345,7 @@
                             };
 
                             xhr.send(formData);
-                        }, 'image/webp', 0.8); // Convert to WebP with 80% quality
+                        }, 'image/jpeg', 0.7);
                     };
                 };
                 reader.readAsDataURL(imageFile);

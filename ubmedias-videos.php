@@ -70,11 +70,11 @@
         <!-- navigation bar -->
         <div class="headers-navigation">
             <div class="navigation-contents">
-                <a href="./index">
+                <a href="./">
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -98,7 +98,7 @@
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -109,13 +109,13 @@
         <div class="mobile-navigation-list" id="mobile-manu-slider">
             <div class="lists-nav">
                 <div class="tops-sl">
-                    <a href="./index">
+                    <a href="./">
                         <h3>UB Medias</h3>
                     </a>
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>

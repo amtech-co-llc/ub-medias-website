@@ -78,7 +78,7 @@ include('./php/connection.php');
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -100,11 +100,11 @@ include('./php/connection.php');
         <!-- beginning of mobile navigation -->
         <div class="mobile-navigation">
             <button id="nav-btn"><i class="ri-bar-chart-horizontal-line"></i></button>
-            <a href="./index">
+            <a href="./">
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -115,13 +115,13 @@ include('./php/connection.php');
         <div class="mobile-navigation-list" id="mobile-manu-slider">
             <div class="lists-nav">
                 <div class="tops-sl">
-                    <a href="./index">
+                    <a href="./">
                         <h3>UB Medias</h3>
                     </a>
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -146,32 +146,33 @@ include('./php/connection.php');
             <!-- body-contents -->
             <div class="contents-1">
                 <!-- big-first-card -->
-                <?php
 
-                $sql = "SELECT * FROM publication WHERE `categorie` = 'sport' ORDER BY id DESC LIMIT 1";
+                <?php
+                $sql = "SELECT * FROM publication WHERE `categorie` = 'sport' ORDER BY id DESC";
                 $query = $pdo->prepare($sql);
                 $query->execute();
 
                 $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 if (count($results) > 0) {
-                    foreach ($results as $row) {
-
-                        (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                    foreach ($results as $index => $row) {
+                        (strlen($row['description']) > 110)
+                            ? $desc = substr($row['description'], 0, 110) . '...'
+                            : $desc = $row['description'];
+                        $style = $index === 0 ? '' : 'style="display:none;"'; // show first, hide the rest
                 ?>
-                        <div class="top-card">
+                        <div class="top-card rotate-post" <?php echo $style; ?>>
                             <div class="image">
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
                                 <h3><?php echo $row['titre'] ?></h3>
-                                <p class="article-content"><?php echo $row['description'] ?></p>
+                                <p class="article-content"><?php echo $desc ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
                                     <div class="icons">
                                         <div class="act"><i class="ri-edit-line"></i> <?php echo $row['nom_du_redacteur'] ?></div>
-                                        <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                         <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
-                                        <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
+                                        <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                         <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">
                                             <div class="act"><i class="ri-chat-3-line"></i> <?php echo formatViews($row['post_comment']); ?></div>
                                         </a>
@@ -183,10 +184,10 @@ include('./php/connection.php');
                             </div>
                         </div>
                 <?php
-
                     }
                 }
                 ?>
+
                 <!-- other cards beginning -->
                 <div class="other-cards">
                     <!-- beginning of all news -->
@@ -217,7 +218,6 @@ include('./php/connection.php');
                                             <p class="article-content"><?php echo $desc ?></p>
                                         </a>
                                         <div class="icons-activity">
-                                            <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
                                             <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                             <a href="./comment?id=<?php echo $row['id'] ?>" id="redir">
@@ -345,12 +345,13 @@ include('./php/connection.php');
     <!-- MANAGE HASH TAGS AND URLS -->
     <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
     <!-- use this code to make urls clickable automatically and hashtags -->
+    <script src="./assets/js/post-rotation.js"></script>
     <script src="./assets/js/urls-and-hashtags.js"></script>
     <!-- include the pagination codes -->
     <script src="./assets/js/pagination.js"></script>
     <!-- uppercase texts -->
     <script src="./assets/js/like_system.js"></script>
-    <script src="./assets/js/dislike_system.js"></script>
+    <!--     <script src="./assets/js/dislike_system.js"></script> -->
 
     <script>
         const elements = document.querySelectorAll(".text-to-uppercase");

@@ -95,11 +95,11 @@ $result = $query->fetch();
         <!-- navigation bar -->
         <div class="headers-navigation">
             <div class="navigation-contents">
-                <a href="./index">
+                <a href="./">
                     <h3>UB Medias</h3>
                 </a>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -125,7 +125,7 @@ $result = $query->fetch();
                 <h3 class="text-pr logo">UB Medias</h3>
             </a>
             <div class="other-buttons">
-                <a href="#"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
+                <a href="./newsletters"><button class="button-3"><i class="ri-notification-3-line"></i></button></a>
                 <a href="./radio"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
                         Radio</button></a>
                 <a href="./television"><button class="button-2 "><i class="ri-circle-fill" style="color: red;"></i>
@@ -136,13 +136,13 @@ $result = $query->fetch();
         <div class="mobile-navigation-list" id="mobile-manu-slider">
             <div class="lists-nav">
                 <div class="tops-sl">
-                    <a href="./index">
+                    <a href="./">
                         <h3>UB Medias</h3>
                     </a>
                     <button></button>
                 </div>
                 <ul>
-                    <li><a href="./index">Actualités</a></li>
+                    <li><a href="./">Acceuil</a></li>
                     <li><a href="./actualites-politique">Politiques</a></li>
                     <li><a href="./actualites-sportive">Sports</a></li>
                     <li><a href="./actualites-culturelle">Cultures</a></li>
@@ -190,7 +190,6 @@ $result = $query->fetch();
                                 <div class="other-details">
                                     <div class="icons">
                                         <div class="act"><i class="ri-edit-line"></i> <?php echo $row['nom_du_redacteur'] ?></div>
-                                        <div class="act"><i class="ri-eye-line"></i> <?php echo formatViews($row['post_views']); ?></div>
                                         <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>
                                         <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo formatViews($row['post_dislikes']); ?></div>
                                         <a href="./comment.php?id=<?php echo $row['id'] ?>" id="redir">
@@ -238,7 +237,6 @@ $result = $query->fetch();
                                             <p class="article-content"><?php echo $desc ?></p>
                                         </a>
                                         <div class="icons-activity">
-                                            <div class="act"><i class="ri-eye-line"></i> <?php echo $row['post_views'] ?></div>
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo $row['post_likes'] ?></div>
                                             <div class="act dislike-btn" data-post-id="<?php echo $row['id']; ?>"><i class=" ri-thumb-down-line"></i> <?php echo $row['post_dislikes'] ?></div>
                                             <a href="./comment.php?id=<?php echo $row['id'] ?>" id="redir">
@@ -371,7 +369,7 @@ $result = $query->fetch();
     <script src="./assets/js/pagination.js"></script>
     <!-- uppercase texts -->
     <script src="./assets/js/like_system.js"></script>
-    <script src="./assets/js/dislike_system.js"></script>
+    <!--     <script src="./assets/js/dislike_system.js"></script> -->
 
     <script>
         const elements = document.querySelectorAll(".text-to-uppercase");
