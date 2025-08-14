@@ -44,7 +44,7 @@ $result = $query->fetch();
     <meta name="keywords" content="">
     <!-- meta tags for Facebook, whatsapp, etc... -->
     <meta property="og:url" content="page url">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="./admin/uploads/<?php echo $row['image'] ?>">
     <meta property="og:description" content="<?php echo $result['description'] ?>">
     <meta property="og:title" content="<?php echo $result['titre'] ?>">
     <meta property="og:site_name" content="UB Medias">
@@ -58,7 +58,7 @@ $result = $query->fetch();
     <meta name="twitter:url" content="page url">
     <meta name="twitter:title" content="<?php echo $result['titre'] ?>">
     <meta name="twitter:description" content="<?php echo $result['description'] ?>">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:image" content="./admin/uploads/<?php echo $row['image'] ?>">
     <!-- end of meta tags -->
 
     <!-- include favicon for page -->
