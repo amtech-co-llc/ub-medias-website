@@ -58,6 +58,7 @@
     }
 
     .other-cards .cards .card1 {
+        min-width: 100%;
         width: 100%;
         margin-bottom: 1.5em;
     }
@@ -113,13 +114,77 @@
         padding: 1em;
         gap: 3em;
     }
+
+    .comments .comments-contents {
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    /*   .other-cards .cards .card1 {
+        width: 250px;
+        margin-bottom: 1.5em;
+    } */
+
+    .article-content {
+        max-height: none;
+        overflow-y: visible;
+
+        /* These two are important for line breaks */
+        white-space: normal;
+        /* allow wrapping and respect <br> */
+        word-wrap: break-word;
+        /* break long words if needed */
+
+        display: block;
+        /* make sure it's not inline-flex */
+    }
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* Small devices (portrait phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
+
     /* Your styles for phones */
+    /*   .other-cards .cards .card1 {
+        width: 250px;
+        margin-bottom: 1.5em;
+    } */
+
+    .comments .comments-contents {
+        display: flex;
+        flex-direction: column;
+        min-width: 50%;
+        max-width: 100%;
+    }
+
+    .comments .comments-contents .comments-cards .comment-1 {
+        padding: 0.3em;
+        border-bottom: 1px solid var(--border);
+        max-width: 100%;
+    }
+
+    .other-cards .cards .card1 {
+        min-width: 100%;
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+
+    .article-content {
+        max-height: none;
+        overflow-y: visible;
+
+        /* These two are important for line breaks */
+        white-space: normal;
+        /* allow wrapping and respect <br> */
+        word-wrap: break-word;
+        /* break long words if needed */
+
+        display: block;
+        /* make sure it's not inline-flex */
+    }
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */
@@ -148,6 +213,11 @@
     .mobile-navigation {
         padding: 0.7em 4em 0.7em 4em;
     }
+
+    /*   .other-cards .cards .card1 {
+        width: 250px;
+        margin-bottom: 1.5em;
+    } */
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */
@@ -162,6 +232,11 @@
         justify-content: space-between;
         margin: 0em 2em 0em 2em;
     }
+
+    /*   .other-cards .cards .card1 {
+        width: 270px;
+        margin-bottom: 1.5em;
+    } */
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */

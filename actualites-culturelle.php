@@ -145,7 +145,7 @@ include('./php/connection.php');
             <!-- body-contents -->
             <div class="contents-1">
                 <!-- big-first-card -->
-                
+
                 <?php
                 $sql = "SELECT * FROM publication WHERE `categorie` = 'culture' ORDER BY id DESC";
                 $query = $pdo->prepare($sql);
@@ -154,9 +154,10 @@ include('./php/connection.php');
                 $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 if (count($results) > 0) {
                     foreach ($results as $index => $row) {
-                        (strlen($row['description']) > 110)
-                            ? $desc = substr($row['description'], 0, 110) . '...'
-                            : $desc = $row['description'];
+                        $desc = (mb_strlen($row['description'], 'UTF-8') > 600)
+                            ? mb_substr($row['description'], 0, 600, 'UTF-8') . '...'
+                            : $row['description'];
+
                         $style = $index === 0 ? '' : 'style="display:none;"'; // show first, hide the rest
                 ?>
                         <div class="top-card rotate-post" <?php echo $style; ?>>
@@ -164,7 +165,9 @@ include('./php/connection.php');
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
-                                <h3><?php echo $row['titre'] ?></h3>
+                                <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
+                                    <h3><?php echo $row['titre'] ?></h3>
+                                </a>
                                 <p class="article-content"><?php echo $desc ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
@@ -197,7 +200,7 @@ include('./php/connection.php');
                         <!-- beginning of card1 -->
                         <?php
 
-                        $sql = "SELECT * FROM publication WHERE `categorie` = 'culture' AND id != (SELECT MAX(id) FROM publication WHERE categorie = 'culture') ORDER BY RAND()";
+                        $sql = "SELECT * FROM publication WHERE `categorie` = 'culture' ORDER BY RAND()";
                         $query = $pdo->prepare($sql);
                         $query->execute();
 

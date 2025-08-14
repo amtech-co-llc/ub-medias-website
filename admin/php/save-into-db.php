@@ -6,7 +6,9 @@ include('./connection.php'); // connect to the database
 $titre = html_entity_decode(htmlspecialchars($_POST['titre'])); // fetch data from title
 $categorie = html_entity_decode(htmlspecialchars($_POST['categorie'])); // fetch data from category
 $nom_du_redacteur = html_entity_decode(htmlspecialchars($_POST['nom_du_redacteur'])); // fetch data from editor name
-$description = html_entity_decode(htmlspecialchars($_POST['description'])); // fetch data from description
+// Just escape HTML and preserve line breaks
+$description = nl2br(htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8'));
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SEO friendly URL

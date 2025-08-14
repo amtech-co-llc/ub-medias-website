@@ -171,14 +171,19 @@ $query_for_comment->execute([$post_views + 1, $id]);
                 if (count($results) > 0) {
                     foreach ($results as $row) {
 
-                        (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                        $desc = (mb_strlen($row['description'], 'UTF-8') > 600)
+                            ? mb_substr($row['description'], 0, 600, 'UTF-8') . '...'
+                            : $row['description'];
+
                 ?>
                         <div class="top-card">
                             <div class="image">
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
-                                <h3><?php echo $row['titre'] ?></h3>
+                                <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
+                                    <h3><?php echo $row['titre'] ?></h3>
+                                </a>
                                 <p class="article-content"><?php echo $row['description'] ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">

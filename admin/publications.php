@@ -193,7 +193,7 @@
                         </div>
                         <div class="inputs">
                             <label for="">Description</label>
-                            <textarea name="description" maxlength="776" id="text-area" placeholder="Description"></textarea>
+                            <textarea name="description" id="text-area" placeholder="Description"></textarea>
                         </div>
                         <div class="inputs">
                             <label for="">Selectionner une image</label>

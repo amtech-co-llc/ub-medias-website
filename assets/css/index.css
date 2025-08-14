@@ -179,6 +179,7 @@ body.noscroll {
     width: 100em;
     height: 23.5em;
     overflow: hidden;
+    object-fit: contain;
 }
 
 .body-contents .contents-1 .top-card .image img {
@@ -186,6 +187,27 @@ body.noscroll {
     height: 100%;
     object-fit: cover;
 }
+
+
+
+.article-content {
+    max-height: 250px;
+    overflow-y: auto;
+    margin: 5px;
+    /* only shows when needed */
+
+    /* These two are important for line breaks */
+    white-space: normal;
+    /* allow wrapping and respect <br> */
+    word-wrap: break-word;
+    /* break long words if needed */
+
+    display: block;
+    /* make sure it's not inline-flex */
+}
+
+
+
 
 .other-details {
     margin-top: 1em;
@@ -225,16 +247,39 @@ body.noscroll {
 .other-cards .cards {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
     margin-top: 1em;
-    width: 85%;
+    width: 90%;
 }
 
+/* Default: Responsive in other cards */
+/* .other-cards .cards .card1 {
+    width: 30%;
+    /* or whatever fits nicely in your grid 
+    min-width: 30%;
+    /* prevents it from shrinking too much 
+    margin-bottom: 1.5em;
+} */
+
+/* Default: multiple cards = 30% each */
 .other-cards .cards .card1 {
-    width: 32%;
+    width: 31%;
+    min-width: 250px;
+    /* still prevents too small cards */
     margin-bottom: 1.5em;
 }
+
+/* If there's only one card inside .cards */
+.other-cards .cards .card1:only-child {
+    width: 100%;
+    max-width: 390px;
+    /* optional: keep it from stretching too wide */
+    margin: 0 auto 1.5em auto;
+    /* center it */
+}
+
+
+
 
 .other-cards .cards .card1 .image {
     width: 100%;
@@ -580,16 +625,17 @@ body.noscroll {
     gap: 3em;
 }
 
-.comments .comments-contents .comments-cards {
+.comments .comments-contents {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    min-width: 50%;
+    max-width: 100%;
 }
 
 .comments .comments-contents .comments-cards .comment-1 {
     padding: 0.3em;
     border-bottom: 1px solid var(--border);
-    width: 100%;
+    max-width: 100%;
 }
 
 .comments .comments-contents .comments-cards .comment-1 p {

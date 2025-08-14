@@ -6,6 +6,11 @@ $dbname = "ub_medias_db"; // database name
 $user = "root"; // user name
 $pass = ""; // password
 
+/* $host = "localhost";  // host name
+$dbname = "amtechco_ub_medias_db"; // database name
+$user = "amtechco_ub_medias"; // user name
+$pass = "UB-medias001"; // password */
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 try {

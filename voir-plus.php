@@ -176,8 +176,7 @@ $result = $query->fetch();
                 $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 if (count($results) > 0) {
                     foreach ($results as $row) {
-
-                        (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                        $desc =  $row['description'];
                 ?>
                         <div class="top-card">
                             <div class="image">
