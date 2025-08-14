@@ -329,7 +329,7 @@
                         canvas.toBlob(function(jpegBlob) {
                             const formData = new FormData(form);
                             formData.delete(fileInput.name); // Remove original image
-                            formData.append(fileInput.name, jpegBlob, 'image.jpg');
+                            formData.append(fileInput.name, jpegBlob, 'image.png');
 
                             const xhr = new XMLHttpRequest();
                             xhr.open("POST", "./php/save-into-db.php", true);
@@ -345,7 +345,7 @@
                             };
 
                             xhr.send(formData);
-                        }, 'image/jpeg', 0.7);
+                        }, 'image/png', 0.4);
                     };
                 };
                 reader.readAsDataURL(imageFile);

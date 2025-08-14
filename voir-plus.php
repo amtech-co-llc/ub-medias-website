@@ -44,21 +44,21 @@ $result = $query->fetch();
     <meta name="keywords" content="">
     <!-- meta tags for Facebook, whatsapp, etc... -->
     <meta property="og:url" content="page url">
-    <meta property="og:image" content="./admin/uploads/<?php echo $row['image'] ?>">
+    <meta property="og:image" content="<?php echo "https://ub-medias.com/admin/uploads/" . $result['image'] ?>">
     <meta property="og:description" content="<?php echo $result['description'] ?>">
     <meta property="og:title" content="<?php echo $result['titre'] ?>">
     <meta property="og:site_name" content="UB Medias">
     <meta property="og:see_also" content="">
     <!-- meta tags for google + facebook meta info -->
-    <meta itemprop="name" content="">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="">
+    <meta itemprop="name" content="UB Médias">
+    <meta itemprop="description" content="<?php echo $result['titre'] ?>">
+    <meta itemprop="image" content="<?php echo "https://ub-medias.com/admin/uploads/" . $result['image'] ?>">
     <!-- meta tags for twitter (X) meta infos -->
     <meta name="twitter:card" content="UB Medias">
     <meta name="twitter:url" content="page url">
     <meta name="twitter:title" content="<?php echo $result['titre'] ?>">
     <meta name="twitter:description" content="<?php echo $result['description'] ?>">
-    <meta name="twitter:image" content="./admin/uploads/<?php echo $row['image'] ?>">
+    <meta name="twitter:image" content="<?php echo "https://ub-medias.com/admin/uploads/" . $result['image'] ?>">
     <!-- end of meta tags -->
 
     <!-- include favicon for page -->
