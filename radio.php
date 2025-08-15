@@ -150,6 +150,11 @@
                         allow="autoplay; encrypted-media"
                         allowfullscreen>
                     </iframe>
+                    <!--    <audio controls autoplay>
+                        <source src="https://www.s2.voscast.com:11280/59669302eba19.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio> -->
+
                 </div>
 
                 <style>
