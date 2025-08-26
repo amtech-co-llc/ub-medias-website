@@ -7,7 +7,7 @@ $titre = html_entity_decode(htmlspecialchars($_POST['titre'])); // fetch data fr
 $categorie = html_entity_decode(htmlspecialchars($_POST['categorie'])); // fetch data from category
 $nom_du_redacteur = html_entity_decode(htmlspecialchars($_POST['nom_du_redacteur'])); // fetch data from editor name
 // Just escape HTML and preserve line breaks
-$description = nl2br(htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8'));
+$description = nl2br($_POST['description']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

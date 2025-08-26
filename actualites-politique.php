@@ -166,7 +166,7 @@ include('./php/connection.php');
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
-                                 <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
+                                <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
                                     <h3><?php echo $row['titre'] ?></h3>
                                 </a>
                                 <p class="article-content"><?php echo $desc ?></p>
@@ -209,7 +209,7 @@ include('./php/connection.php');
                         if (count($results) > 0) {
                             foreach ($results as $row) {
 
-                                (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                                $desc = (strlen($row['titre']) > 110) ? substr($row['titre'], 0, 110) . '...' : $row['titre'];
                         ?>
                                 <div class="card1">
                                     <div class="image">
@@ -218,7 +218,7 @@ include('./php/connection.php');
                                     <div class="details">
                                         <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                         <a href="./<?php echo $row['seo_url'] ?>">
-                                            <p class="article-content"><?php echo $desc ?></p>
+                                            <p class="article-content"  style="white-space: pre-line;"><?php echo $desc ?></p>
                                         </a>
                                         <div class="icons-activity">
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>

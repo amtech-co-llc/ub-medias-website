@@ -157,7 +157,7 @@ body.noscroll {
 
 .body-contents .contents-1 .top-card {
     display: flex;
-    align-items: center;
+    align-items: self-start;
     justify-content: space-between;
     gap: 2em;
     width: 85%;
@@ -173,11 +173,19 @@ body.noscroll {
 
 .body-contents .contents-1 .top-card .details p {
     color: var(--gray-footer);
+    text-align: justify;
 }
 
 .body-contents .contents-1 .top-card .image {
     width: 100em;
     height: 23.5em;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.body-contents .contents-1 .top-card .image.active {
+    width: 100em;
+    height: auto;
     overflow: hidden;
     object-fit: contain;
 }
@@ -190,25 +198,23 @@ body.noscroll {
 
 
 
-.article-content {
+/* .article-content {
     max-height: 250px;
     overflow-y: auto;
     margin: 5px;
     /* only shows when needed */
 
-    /* These two are important for line breaks */
+/* These two are important for line breaks 
     white-space: normal;
-    /* allow wrapping and respect <br> */
+    /* allow wrapping and respect <br> 
     word-wrap: break-word;
-    /* break long words if needed */
+    /* break long words if needed 
 
     display: block;
-    /* make sure it's not inline-flex */
+    /* make sure it's not inline-flex 
 }
 
-
-
-
+*/
 .other-details {
     margin-top: 1em;
 }
@@ -249,7 +255,7 @@ body.noscroll {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 1em;
-    width: 90%;
+    width: 85%;
 }
 
 /* Default: Responsive in other cards */
@@ -290,6 +296,10 @@ body.noscroll {
 .other-cards .cards .card1 .details a {
     text-decoration: none;
     color: var(--black);
+}
+
+.other-cards .cards .card1 .details a p {
+    font-weight: bold;
 }
 
 .other-cards .cards .card1 .details a:hover {

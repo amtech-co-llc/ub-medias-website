@@ -148,7 +148,7 @@
                             <div style="text-align: left;">
                                 <p class="mb-4 font-semibold"><strong class="text-pr">UB Médias</strong> – Le média qui
                                     vous propulse.</p>
-                                <p class="mb-2">Vous souhaitez en savoir davantage sur nos services ? Vous avez une
+                                <p class="mb-2">Vous souhaitez en savoir davantage sur nos services ? <br> Vous avez une
                                     question, une remarque ou un besoin spécifique ?</p>
                                 <p class="mb-4">Notre équipe se tient à votre disposition pour vous accompagner avec
                                     réactivité et professionnalisme.</p>

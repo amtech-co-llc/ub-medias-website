@@ -22,6 +22,9 @@ $query->execute([$slug]);
 
 $result = $query->fetch();
 
+$description = strip_tags($result['description']);  // remove HTML
+$description = mb_substr($description, 0, 160);    // limit to 160 chars
+
 ?>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
 <!DOCTYPE html>
@@ -45,7 +48,7 @@ $result = $query->fetch();
     <!-- meta tags for Facebook, whatsapp, etc... -->
     <meta property="og:url" content="page url">
     <meta property="og:image" content="<?php echo "https://ub-medias.com/admin/uploads/" . $result['image'] ?>">
-    <meta property="og:description" content="<?php echo $result['description'] ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($description, ENT_QUOTES); ?>">
     <meta property="og:title" content="<?php echo $result['titre'] ?>">
     <meta property="og:site_name" content="UB Medias">
     <meta property="og:see_also" content="">
@@ -57,7 +60,7 @@ $result = $query->fetch();
     <meta name="twitter:card" content="UB Medias">
     <meta name="twitter:url" content="page url">
     <meta name="twitter:title" content="<?php echo $result['titre'] ?>">
-    <meta name="twitter:description" content="<?php echo $result['description'] ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($description, ENT_QUOTES); ?>">
     <meta name="twitter:image" content="<?php echo "https://ub-medias.com/admin/uploads/" . $result['image'] ?>">
     <!-- end of meta tags -->
 
@@ -179,12 +182,12 @@ $result = $query->fetch();
                         $desc =  $row['description'];
                 ?>
                         <div class="top-card">
-                            <div class="image">
+                            <div class="image active">
                                 <a href="./admin/uploads/<?php echo $row['image'] ?>"><img src="./admin/uploads/<?php echo $row['image'] ?>" alt=""></a>
                             </div>
                             <div class="details">
                                 <h3><?php echo $row['titre'] ?></h3>
-                                <p class="article-content"><?php echo $row['description'] ?></p>
+                                <p class="article-content" style="white-space: pre-line;"><?php echo $row['description'] ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
                                     <div class="icons">
@@ -224,7 +227,7 @@ $result = $query->fetch();
                         if (count($results) > 0) {
                             foreach ($results as $row) {
 
-                                (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                                $desc = (strlen($row['titre']) > 110) ? substr($row['titre'], 0, 110) . '...' : $row['titre'];
                         ?>
                                 <div class="card1">
                                     <div class="image">

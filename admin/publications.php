@@ -19,6 +19,9 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!--  ///////////////////////////////////////////////////////////////////////////////////////// -->
 
+    <!-- Include TinyMCE from CDN -->
+    <script src="https://cdn.tiny.cloud/1/xq7pcdq2o64dydyub9wmqn5pbzdk6wrc6h09k7iv5320pzp8/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
 </head>
 
 <body>
@@ -192,7 +195,7 @@
                             <input type="text" maxlength="15" name="nom_du_redacteur" placeholder="Nom du Rédacteur">
                         </div>
                         <div class="inputs">
-                            <label for="">Description</label>
+                            <label for="text-area">Description</label>
                             <textarea name="description" id="text-area" placeholder="Description"></textarea>
                         </div>
                         <div class="inputs">
@@ -364,6 +367,15 @@
                 visualizer.innerHTML = "";
             }, 3000);
         }
+    </script>
+
+    <script>
+        tinymce.init({
+            selector: '#text-area', // Target your textarea
+            plugins: 'lists link image table code',
+            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code',
+            menubar: false
+        });
     </script>
 
 

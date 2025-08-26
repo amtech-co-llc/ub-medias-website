@@ -209,7 +209,7 @@ include('./php/connection.php');
                         if (count($results) > 0) {
                             foreach ($results as $row) {
 
-                                (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                                $desc = (strlen($row['titre']) > 110) ? substr($row['titre'], 0, 110) . '...' : $row['titre'];
                         ?>
                                 <div class="card1">
                                     <div class="image">
@@ -218,7 +218,7 @@ include('./php/connection.php');
                                     <div class="details">
                                         <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                         <a href="./<?php echo $row['seo_url'] ?>">
-                                            <p class="article-content"><?php echo $desc ?></p>
+                                            <p class="article-content"  style="white-space: pre-line;"><?php echo $desc ?></p>
                                         </a>
                                         <div class="icons-activity">
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>

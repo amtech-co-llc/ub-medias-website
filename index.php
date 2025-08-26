@@ -166,7 +166,7 @@ include('./php/connection.php');
                                 <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
                                     <h3><?php echo $row['titre'] ?></h3>
                                 </a>
-                                <p class="article-content"><?php echo $desc ?></p>
+                                <p class="article-content" style="white-space: pre-line;"><?php echo $desc ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
                                     <div class="icons">
@@ -255,7 +255,7 @@ include('./php/connection.php');
                         // Display posts
                         if (count($posts) > 0) {
                             foreach ($posts as $row) {
-                                $desc = (strlen($row['description']) > 110) ? substr($row['description'], 0, 110) . '...' : $row['description'];
+                                $desc = (strlen($row['titre']) > 110) ? substr($row['titre'], 0, 110) . '...' : $row['titre'];
                         ?>
                                 <div class="card1">
                                     <div class="image">
@@ -264,7 +264,7 @@ include('./php/connection.php');
                                     <div class="details">
                                         <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                         <a href="./<?php echo $row['seo_url'] ?>">
-                                            <p class="article-content"><?php echo $row['titre'] ?></p>
+                                            <p class="article-content"><?php echo $desc ?></p>
                                         </a>
                                         <div class="icons-activity">
                                             <div class="act like-btn" data-post-id="<?php echo $row['id']; ?>"><i class="ri-thumb-up-line"></i> <?php echo formatViews($row['post_likes']); ?></div>

@@ -168,7 +168,7 @@ include('./php/connection.php');
                                 <a href="./<?php echo $row['seo_url'] ?>" style="text-decoration:none;color:#000;">
                                     <h3><?php echo $row['titre'] ?></h3>
                                 </a>
-                                <p class="article-content"><?php echo $desc ?></p>
+                                <p class="article-content"  style="white-space: pre-line;"><?php echo $desc ?></p>
                                 <div class="categorie" id="categorie"><i class="ri-delete-back-line"></i> <?php echo $row['categorie'] ?></div>
                                 <div class="other-details">
                                     <div class="icons">
@@ -208,7 +208,7 @@ include('./php/connection.php');
                         if (count($results) > 0) {
                             foreach ($results as $row) {
 
-                                (strlen($row['description']) > 110) ? $desc = substr($row['description'], 0, 110) . '...' : $desc =  $row['description'];
+                                $desc = (strlen($row['titre']) > 110) ? substr($row['titre'], 0, 110) . '...' : $row['titre'];
                         ?>
                                 <div class="card1">
                                     <div class="image">
